@@ -40,6 +40,7 @@ app.config.update(
     SECRET_KEY=secret_key,
     SQLALCHEMY_DATABASE_URI=db_url,
     SQLALCHEMY_TRACK_MODIFICATIONS=False,
+    SQLALCHEMY_ENGINE_OPTIONS={"pool_pre_ping": True, "pool_recycle": 280},
     MAX_CONTENT_LENGTH=20 * 1024 * 1024,        # 20 MB uploads
     SESSION_COOKIE_HTTPONLY=True,                # JavaScript cannot read the cookie
     SESSION_COOKIE_SAMESITE="Lax",
