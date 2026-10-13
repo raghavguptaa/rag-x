@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard • Rag X</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b5cf6'/%3E%3Ctext x='16' y='23' font-size='19' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/landing.css">
+    <link rel="stylesheet" href="/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="nav" id="nav"></header>
+
+<main class="container dash">
+    <div class="dash-head">
+        <div class="avatar" id="avatar">?</div>
+        <div class="grow">
+            <h1>Dashboard</h1>
+            <p class="sub" id="welcome">Loading your account...</p>
+        </div>
+        <button class="btn btn-ghost" id="logoutBtn">Sign out</button>
+    </div>
+
+    <div class="dash-grid">
+        <section class="d-card">
+            <h2>Account</h2>
+            <div class="kv"><span>Email</span><b id="userEmail">-</b></div>
+            <div class="kv"><span>Member since</span><b id="memberSince">-</b></div>
+            <div class="kv"><span>Stored on server</span><b>Email, password hash and usage log</b></div>
+        </section>
+
+        <section class="d-card">
+            <h2>Quick launch</h2>
+            <div class="tool-links">
+                <a href="/app.html#text">Text Cipher</a>
+                <a href="/app.html#file">File Cipher</a>
+                <a href="/app.html#vault">Password Vault</a>
+                <a href="/app.html#pdf">PDF Protection</a>
+                <a href="/admin.html" id="inboxLink" hidden>Inbox (admin)</a>
+            </div>
+        </section>
+
+                <section class="d-card wide">
+            <div class="act-head">
+                <h2>Activity</h2>
+                <div class="act-controls">
+                    <button class="act-btn" id="pauseBtn">Pause tracking</button>
+                    <button class="act-btn danger" id="clearBtn">Clear history</button>
+                </div>
+            </div>
+            <p class="act-note">Only the tool, the action, the size and the time are saved. Never your messages, files, keys or passwords.</p>
+
+            <div class="act-stats">
+                <div class="a-stat"><b id="sTotal">0</b><span>Operations</span></div>
+                <div class="a-stat"><b id="sWeek">0</b><span>Last 7 days</span></div>
+                <div class="a-stat"><b id="sTop">-</b><span>Most used tool</span></div>
+                <div class="a-stat"><b id="sBytes">0 B</b><span>Data processed</span></div>
+            </div>
+
+            <div class="act-grid">
+                <div>
+                    <h3>Last 14 days</h3>
+                    <div class="bars" id="bars"></div>
+                </div>
+                <div>
+                    <h3>By tool</h3>
+                    <div id="toolBars"></div>
+                </div>
+            </div>
+
+            <h3>Recent activity</h3>
+            <ul class="timeline" id="timeline"></ul>
+        </section>
+    </div>
+</main>
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+<script src="/auth.js"></script>
+<script src="/activity-view.js"></script>
+</body>
+</html>

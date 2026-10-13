@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rag X • Encryption Toolkit</title>
+    <meta name="description" content="Encrypt text, files and PDFs with AES-256. Most tools run entirely in your browser.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b5cf6'/%3E%3Ctext x='16' y='23' font-size='19' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="nav" id="nav"></header>
+
+<!-- <!-- ================= HERO ================= -->
+<section class="hero-section">
+    <div class="container hero-grid">
+
+        <div class="hero-copy">
+            <span class="eyebrow">Browser-side encryption</span>
+            <h1>Lock down your <span class="typed-wrap"><span id="typed" class="grad-text">messages</span></span></h1>
+            <p class="lead">
+                Rag X is an encryption toolkit for text, files and PDFs. Modern
+                AES-256 and PBKDF2 do the heavy lifting, and most operations never
+                leave your browser.
+            </p>
+            <div class="hero-actions">
+                <a href="/app.html" class="btn btn-lg">Toolkit</a>
+                <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="glow"></div>
+            <div class="app-window">
+                <div class="win-bar"><i></i><i></i><i></i><span>rag-x / text cipher &bull; live demo</span></div>
+                <div class="win-body">
+                    <label class="win-label" for="demoInput">Message</label>
+                    <textarea id="demoInput" rows="3" maxlength="200" placeholder="Type something to encrypt...">Quarterly report is ready for review.</textarea>
+
+                    <label class="win-label">Encrypted output (AES-256-GCM)</label>
+                    <div class="win-out" id="demoOut"></div>
+
+                    <div class="win-foot">
+                        <span class="pill" id="demoMeta">Ready</span>
+                        <span class="win-note">Key never leaves your browser</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= TECH BAR ================= -->
+<section class="tech-bar">
+    <div class="container tech-inner">
+        <b>Built with</b>
+        <span class="t">Web Crypto API</span>
+        <span class="t">AES-256-GCM</span>
+        <span class="t">PBKDF2</span>
+        <span class="t">SHA-256</span>
+        <span class="t">Python</span>
+        <span class="t">Flask</span>
+    </div>
+</section>
+<!-- ================= STATS ================= -->
+<section class="stats container">
+    <div class="stat reveal"><b data-count="256">0</b><span>bit AES keys</span></div>
+    <div class="stat reveal"><b data-count="600000">0</b><span>PBKDF2 iterations</span></div>
+    <div class="stat reveal"><b data-count="0">0</b><span>keys stored on the server</span></div>
+    <div class="stat reveal"><b data-count="6">0</b><span>security tools</span></div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Features</span>
+            <h2>Everything you need to protect data</h2>
+            <p>Six focused tools, one clean interface.</p>
+        </div>
+
+        <div class="grid-3">
+            <article class="f-card reveal"><span class="f-num">01</span><h3>Text Cipher</h3><p>Encrypt messages with AES-256-GCM. A fresh key and IV are generated for every message, entirely in your browser.</p></article>
+            <article class="f-card reveal" data-delay="100"><span class="f-num">02</span><h3>File Cipher</h3><p>Encrypt any file locally and download a key package for later decryption. Nothing is uploaded.</p></article>
+            <article class="f-card reveal" data-delay="200"><span class="f-num">03</span><h3>Password Vault</h3><p>Protect text or files with a single password. The key comes from PBKDF2 and even the original file name is encrypted.</p></article>
+            <article class="f-card reveal"><span class="f-num">04</span><h3>PDF Protection</h3><p>Lock and unlock PDFs with AES-256 password protection, with size limits and rate limiting on the server.</p></article>
+            <article class="f-card reveal" data-delay="100"><span class="f-num">05</span><h3>Password Generator</h3><p>Create strong passwords using the browser's secure random generator, with a live entropy meter.</p></article>
+            <article class="f-card reveal" data-delay="200"><span class="f-num">06</span><h3>Hash Checker</h3><p>Fingerprint text or files with SHA-256 and compare against a published hash to detect tampering.</p></article>
+        </div>
+    </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">How it works</span>
+            <h2>Three steps, no accounts</h2>
+        </div>
+
+        <div class="steps" id="steps">
+            <div class="steps-line"><div class="steps-fill" id="stepsFill"></div></div>
+
+            <div class="step reveal">
+                <span class="step-dot">1</span>
+                <div><h3>Choose a tool</h3><p>Pick text, file, vault or PDF protection. No account needed to use the tools.</p></div>
+            </div>
+            <div class="step reveal">
+                <span class="step-dot">2</span>
+                <div><h3>Encrypt in your browser</h3><p>The Web Crypto API derives keys and encrypts your data locally using AES-256-GCM.</p></div>
+            </div>
+            <div class="step reveal">
+                <span class="step-dot">3</span>
+                <div><h3>Keep the key safe</h3><p>Download your encrypted package. Only the right password or key can open it, and nobody can recover it for you.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">FAQ</span>
+            <h2>Common questions</h2>
+            <p>Straight answers about how Rag X handles your data.</p>
+        </div>
+
+        <div class="faq-layout">
+
+            <aside class="flow-panel reveal">
+                <h3>Where does your data go?</h3>
+                <p class="flow-sub">Each tool at a glance</p>
+
+                <div class="flow-row">
+                    <div class="flow-top"><b>Text Cipher</b><span class="flow-tag ok">Stays in your browser</span></div>
+                    <div class="flow-line off"><span class="n">You</span><i class="bar"></i><span class="n far">Server</span></div>
+                </div>
+
+                <div class="flow-row">
+                    <div class="flow-top"><b>File Cipher</b><span class="flow-tag ok">Stays in your browser</span></div>
+                    <div class="flow-line off"><span class="n">You</span><i class="bar"></i><span class="n far">Server</span></div>
+                </div>
+
+                <div class="flow-row">
+                    <div class="flow-top"><b>Password Vault</b><span class="flow-tag ok">Stays in your browser</span></div>
+                    <div class="flow-line off"><span class="n">You</span><i class="bar"></i><span class="n far">Server</span></div>
+                </div>
+
+                <div class="flow-row">
+                    <div class="flow-top"><b>PDF Protection</b><span class="flow-tag warn">Server, in memory only</span></div>
+                    <div class="flow-line on"><span class="n">You</span><i class="bar"></i><span class="n">Server</span></div>
+                </div>
+
+                <div class="flow-row">
+                    <div class="flow-top"><b>Account (optional)</b><span class="flow-tag info">Email, hash, usage log</span></div>
+                    <div class="flow-line acct"><span class="n">You</span><i class="bar"></i><span class="n">Server</span></div>
+                </div>
+
+                <p class="flow-note"><b>Never stored anywhere:</b> your messages, files, keys and vault passwords.</p>
+            </aside>
+
+            <div class="faq-list">
+                <details class="faq reveal" open>
+                    <summary>Is my data uploaded anywhere?</summary>
+                    <p>Text, File and Vault encryption run entirely in your browser. Only PDF lock and unlock sends the file and password to the server, where it is processed in memory and not saved.</p>
+                </details>
+                <details class="faq reveal">
+                    <summary>What if I forget my vault password?</summary>
+                    <p>It cannot be recovered. No key or password is stored anywhere, which is exactly what keeps your data safe.</p>
+                </details>
+                <details class="faq reveal">
+                    <summary>Which algorithms are used?</summary>
+                    <p>AES-256-GCM for encryption, PBKDF2-HMAC-SHA256 for password-based keys, SHA-256 for hashing and AES-256 for PDF protection.</p>
+                </details>
+                <details class="faq reveal">
+                    <summary>Can I use Rag X without an account?</summary>
+                    <p>Yes. All six tools work without signing in. An account only adds a personal dashboard.</p>
+                </details>
+                <details class="faq reveal">
+                    <summary>What files can I encrypt?</summary>
+                    <p>File Cipher and the Password Vault accept any file type, limited only by your browser's memory. PDF Protection accepts PDFs up to 20 MB.</p>
+                </details>
+                <details class="faq reveal">
+                    <summary>Is it safe for highly sensitive data?</summary>
+                    <p>Rag X is a learning and portfolio project built on standard, well-reviewed cryptography. For critical secrets, use professionally audited tools.</p>
+                </details>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="container">
+    <div class="cta reveal">
+        <h2>Ready to lock something down?</h2>
+        <p>Open the toolkit and encrypt your first file in seconds.</p>
+        <a href="/app.html" class="btn btn-light btn-lg">Toolkit</a>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+  <footer class="site-footer" id="footer"></footer>
+
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+<script src="/landing.js"></script>
+</body>
+</html>

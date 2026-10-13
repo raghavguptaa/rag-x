@@ -1,0 +1,673 @@
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #07060f;
+    color: #e5e7eb;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    max-width: 1200px;
+    width: 95%;
+    margin: 20px auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 28px;
+
+    background: #120f24;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+.nav-links a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #e2e8f0;
+}
+
+.active-link {
+    color: #8b5cf6;
+}
+
+/* ================= MAIN ================= */
+
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 26px;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* ================= SWITCH ================= */
+
+.main-switch {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border-radius: 999px;
+
+    background: #120f24;
+    border: 1px solid rgba(255,255,255,0.05);
+
+    color: #94a3b8;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.tab-btn.active-tab {
+    background: rgba(139,92,246,0.15);
+    color: #8b5cf6;
+    border-color: rgba(139,92,246,0.3);
+}
+
+/* ================= CARD ================= */
+
+.card {
+    background: #15112b;
+    border-radius: 14px;
+    padding: 24px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* ================= SUB TABS ================= */
+
+.message-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.message-tabs .tab-btn {
+    background: transparent;
+}
+
+/* ================= TEXTAREA ================= */
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+
+    background: #07060f;
+    color: #e5e7eb;
+
+    font-size: 14px;
+}
+
+textarea::placeholder {
+    color: #64748b;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #8b5cf6;
+}
+
+/* ================= BUTTONS ================= */
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/* PRIMARY */
+
+.primary-btn {
+    width: 100%;
+    padding: 10px;
+
+    background: #8b5cf6;
+    color: #07060f;
+    font-weight: 500;
+}
+
+.primary-btn:hover {
+    background: #7c3aed;
+}
+
+/* SECONDARY */
+
+.secondary-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+
+    background: #120f24;
+    color: #e5e7eb;
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.secondary-btn:hover {
+    background: #1c1738;
+}
+
+/* MINI */
+
+.mini-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+
+    background: #120f24;
+    color: #94a3b8;
+}
+
+.mini-btn:hover {
+    color: #e2e8f0;
+}
+
+/* ================= OUTPUT ================= */
+
+.output-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.output-text {
+    flex: 1;
+
+    background: #07060f;
+    border: 1px solid rgba(255,255,255,0.05);
+
+    padding: 8px;
+    border-radius: 8px;
+
+    font-size: 13px;
+}
+
+/* ================= UPLOAD ================= */
+
+.upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.upload-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+
+    background: #120f24;
+    border: 1px dashed rgba(255,255,255,0.1);
+
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    border-color: #8b5cf6;
+}
+
+.file-name {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* ================= ABOUT PAGE UPGRADE ================= */
+
+/* Target About page card specifically */
+main .card:not(.contact-card) {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 35px 30px;
+        text-align: center;
+
+}
+
+/* Improve paragraph readability */
+main .card p {
+    color: #cbd5f5;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+/* Section headings (Text Cipher, File Cipher etc.) */
+main .card h3 {
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #f8fafc;
+    text-align: center;
+
+    position: relative;
+    padding-left: 12px;
+}
+
+
+
+/* Add spacing between sections */
+main .card h3 + p {
+    margin-bottom: 20px;
+        text-align: center;
+
+}
+
+/* ================= CONTACT PAGE UPGRADE ================= */
+
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Top description */
+.contact-card p {
+    color: #94a3b8;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Contact items container */
+.contact-info {
+    margin-top: 20px;
+}
+
+/* Each item */
+.contact-item {
+    background: #07060f;
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 12px;
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    transition: 0.2s ease;
+}
+
+/* Hover effect */
+.contact-item:hover {
+    border-color: #8b5cf6;
+    transform: translateY(-2px);
+}
+
+/* Label */
+.contact-label {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Value */
+.contact-value {
+    font-size: 15px;
+    color: #f1f5f9;
+    font-weight: 500;
+}
+
+/* ================= PHASE 1: ANIMATIONS ================= */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Page load */
+.navbar      { animation: fadeUp .6s ease both; }
+.hero        { animation: fadeUp .6s ease .1s both; }
+.main-switch { animation: fadeUp .6s ease .2s both; }
+
+/* Every tab/section fades in when it appears */
+#messageSection, #fileSection, #fileLockSection,
+#encryptionSection, #decryptionSection,
+#fileEncryptSection, #fileDecryptSection,
+#lockSection, #unlockSection {
+    animation: fadeUp .35s ease both;
+}
+
+/* Smooth hover and click effects */
+.tab-btn, .primary-btn, .secondary-btn, .mini-btn,
+.upload-btn, .nav-links a, .card {
+    transition: all .25s ease;
+}
+
+.tab-btn:hover {
+    color: #e2e8f0;
+    border-color: rgba(139,92,246,.3);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139,92,246,.35);
+}
+
+.primary-btn:active, .secondary-btn:active, .tab-btn:active {
+    transform: scale(.97);
+}
+
+.card:hover {
+    border-color: rgba(139,92,246,.25);
+    box-shadow: 0 8px 30px rgba(139,92,246,.08);
+}
+
+/* Soft green glow behind the page */
+body {
+    background:
+        radial-gradient(circle at 50% -10%, rgba(139,92,246,.12), transparent 50%),
+        #07060f;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Breathing room on phones */
+.main-content { padding: 0 16px; }
+
+/* Toast popups */
+#toastBox {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.toast {
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #120f24;
+    border: 1px solid rgba(255,255,255,.08);
+    color: #e5e7eb;
+    font-size: 13px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    animation: toastIn .3s ease;
+}
+
+.toast.success { border-color: #8b5cf6; }
+.toast.error   { border-color: #ef4444; }
+
+.toast.hide {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: .3s;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Respect users who turn animations off */
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
+
+/* ================= PHASE 2 ================= */
+
+/* Password field with Show button */
+.password-wrap {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.password-wrap input {
+    width: 100%;
+    padding: 12px 70px 12px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+    background: #07060f;
+    color: #e5e7eb;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color .25s;
+}
+
+.password-wrap input:focus {
+    outline: none;
+    border-color: #8b5cf6;
+}
+
+.eye-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px 10px;
+    font-size: 12px;
+    background: #120f24;
+    color: #94a3b8;
+}
+
+.eye-btn:hover { color: #e2e8f0; }
+
+/* Strength meter */
+.strength {
+    height: 6px;
+    background: #07060f;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+#strengthBar {
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    transition: width .35s ease, background .35s ease;
+}
+
+.strength-text {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 14px;
+    min-height: 16px;
+}
+
+/* Drag and drop upload area */
+.upload-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 22px;
+    border: 2px dashed rgba(255,255,255,0.1);
+    border-radius: 12px;
+    transition: all .25s ease;
+}
+
+.upload-wrapper::after {
+    content: "or drag & drop a file here";
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.upload-wrapper.drag-over {
+    border-color: #8b5cf6;
+    background: rgba(139,92,246,0.08);
+    transform: scale(1.01);
+}
+
+/* Top loading bar while the server is working */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: #8b5cf6;
+    box-shadow: 0 0 10px #8b5cf6;
+    z-index: 2000;
+    transition: width .3s;
+}
+
+body.busy::before {
+    width: 85%;
+    transition: width 8s cubic-bezier(.1,.8,.2,1);
+}
+
+/* ================= PHASE 3 ================= */
+#vaultSection, #vaultEncryptSection, #vaultDecryptSection {
+    animation: fadeUp .35s ease both;
+}
+#vaultText { margin-bottom: 14px; }
+.main-switch { flex-wrap: wrap; }
+
+/* ================= PHASE 4 ================= */
+
+#toolsSection, #toolPwSection, #toolHashSection {
+    animation: fadeUp .35s ease both;
+}
+
+/* long hashes and passwords wrap instead of overflowing */
+.output-text { word-break: break-all; }
+
+#genOutput {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    padding: 12px;
+}
+
+#genBar {
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    transition: width .35s ease, background .35s ease;
+}
+
+.tool-input, .tool-select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+    background: #07060f;
+    color: #e5e7eb;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color .25s;
+}
+
+.tool-input:focus, .tool-select:focus {
+    outline: none;
+    border-color: #8b5cf6;
+}
+
+.range-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.range-row input[type=range] {
+    flex: 1;
+    accent-color: #8b5cf6;
+}
+
+.range-value {
+    min-width: 28px;
+    text-align: right;
+    color: #8b5cf6;
+    font-weight: 600;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #07060f;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    font-size: 13px;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.option-item:hover { border-color: rgba(139,92,246,.4); }
+.option-item input { accent-color: #8b5cf6; }
+
+.match-text {
+    margin-top: 8px;
+    font-size: 13px;
+    min-height: 18px;
+}
+
+@media (max-width: 520px) {
+    .option-grid { grid-template-columns: 1fr; }
+}
+
+/* ================= NEW THEME FIXES ================= */
+.primary-btn { background: linear-gradient(135deg, #8b5cf6, #22d3ee); color: #fff; }
+.primary-btn:hover { background: linear-gradient(135deg, #7c3aed, #0ea5e9); }
+.toast.success { border-color: #22c55e; }

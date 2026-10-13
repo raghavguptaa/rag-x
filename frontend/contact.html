@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact • Rag X</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b5cf6'/%3E%3Ctext x='16' y='23' font-size='19' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/landing.css">
+    <link rel="stylesheet" href="/pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="nav" id="nav"></header>
+
+<!-- ================= INTRO + CONTACT CARDS ================= -->
+<section class="page-hero">
+    <div class="container page-hero-grid">
+        <div class="reveal">
+            <span class="tag">Contact</span>
+            <h1>Let's talk security</h1>
+            <p class="lead">Questions, feedback, bug reports or collaboration ideas are all welcome. Pick whichever way suits you.</p>
+            
+        </div>
+
+        <div class="contact-cards">
+            <a class="c-link reveal" href="mailto:okraghavgupta@gmail.com">
+                <small>Email</small><b>okraghavgupta@gmail.com</b><span class="arrow">&#8599;</span>
+            </a>
+            <a class="c-link reveal" data-delay="80" href="https://github.com/raghavguptaa" target="_blank" rel="noopener noreferrer">
+                <small>GitHub</small><b>github.com/raghavguptaa</b><span class="arrow">&#8599;</span>
+            </a>
+            <a class="c-link reveal" data-delay="160" href="https://www.linkedin.com/in/okraghavgupta" target="_blank" rel="noopener noreferrer">
+                <small>LinkedIn</small><b>linkedin.com/in/okraghavgupta</b><span class="arrow">&#8599;</span>
+            </a>
+            <div class="c-link static reveal" data-delay="240">
+                <small>Location</small><b>Ghaziabad, Uttar Pradesh</b>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FORM + REASONS ================= -->
+<section class="section">
+    <div class="container contact-split">
+
+        <form class="panel reveal" id="contactForm" novalidate>
+            <h3>Send a message</h3>
+
+            <div class="f-field">
+                <label for="cName">Your name (optional)</label>
+                <input type="text" id="cName" autocomplete="name" maxlength="80">
+            </div>
+            <div class="f-field">
+                <label for="cEmail">Your email (optional, so I can reply)</label>
+                <input type="email" id="cEmail" autocomplete="email" maxlength="254">
+            </div>
+            <div class="f-field">
+                <label for="cTopic">Topic</label>
+                <select id="cTopic">
+                    <option>Feedback</option>
+                    <option>Bug report</option>
+                    <option>Security report</option>
+                    <option>Collaboration</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="f-field">
+                <label for="cMsg">Message</label>
+                <textarea id="cMsg" maxlength="2000"></textarea>
+            </div>
+
+            <input type="text" id="cHp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <button type="submit" class="btn btn-lg" id="sendBtn">Send message</button>
+            <p class="form-note" id="formNote">Your message is stored privately so it can be read and answered. Please do not include passwords or secrets.</p>
+        </form>
+
+        <aside class="panel side-panel reveal" data-delay="120">
+            <h3>What to write about</h3>
+
+            <div class="reasons">
+                <div class="reason">
+                    <span class="ic">01</span>
+                    <div><h4>Feedback</h4><p>Ideas for new tools, or things that felt confusing.</p></div>
+                </div>
+                <div class="reason">
+                    <span class="ic">02</span>
+                    <div><h4>Bug reports</h4><p>What you did, what you expected and what happened instead.</p></div>
+                </div>
+                <div class="reason">
+                    <span class="ic">03</span>
+                    <div><h4>Security findings</h4><p>Found a weakness? Send the details here privately instead of posting them publicly.</p></div>
+                </div>
+                <div class="reason">
+                    <span class="ic">04</span>
+                    <div><h4>Collaboration</h4><p>Projects, internships or cybersecurity study groups.</p></div>
+                </div>
+            </div>
+
+            <div class="handling">
+                <h4>How your message is handled</h4>
+                <ul>
+                    <li>Stored privately, readable only by the site owner</li>
+                    <li>Used only to read and reply, never shared</li>
+                    <li>Usually answered within 2 to 3 days</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+</section>
+
+<footer class="site-footer" id="footer"></footer>
+
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+<script src="/pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Admin • Rag X</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b5cf6'/%3E%3Ctext x='16' y='23' font-size='19' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/landing.css">
+    <link rel="stylesheet" href="/pages.css">
+    <link rel="stylesheet" href="/auth.css">
+    <link rel="stylesheet" href="/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="nav" id="nav"></header>
+
+<main class="container admin-wrap">
+    <div class="admin-head">
+        <div>
+            <span class="tag">Admin</span>
+            <h1>Admin panel</h1>
+            <p>Site overview, messages and registered users.</p>
+        </div>
+    </div>
+
+    <div class="ad-stats">
+        <div class="ad-stat"><b id="stUsers">-</b><span>Registered users</span></div>
+        <div class="ad-stat"><b id="stNew">-</b><span>New this week</span></div>
+        <div class="ad-stat"><b id="stActive">-</b><span>Active this week</span></div>
+        <div class="ad-stat"><b id="stMsgs">-</b><span id="stMsgsLabel">Messages</span></div>
+    </div>
+
+    <div class="admin-tabs">
+        <button class="admin-tab active" data-pane="paneMessages">Messages</button>
+        <button class="admin-tab" data-pane="paneUsers">Users</button>
+    </div>
+
+    <section id="paneMessages">
+        <div class="pane-bar">
+            <p id="summary">Loading...</p>
+            <div class="filters">
+                <button class="chip-btn active" data-filter="all">All</button>
+                <button class="chip-btn" data-filter="unread">Unread</button>
+            </div>
+        </div>
+        <div id="list" class="msg-list"></div>
+    </section>
+
+    <section id="paneUsers" hidden>
+        <div class="d-box">
+            <h3>Sign-ups, last 14 days</h3>
+            <div class="bars" id="signBars"></div>
+        </div>
+        <div class="table-wrap">
+            <table class="u-table">
+                <thead>
+                    <tr><th>Email</th><th>Joined</th><th class="num">Operations</th></tr>
+                </thead>
+                <tbody id="userRows"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer" id="footer"></footer>
+
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+<script src="/admin.js"></script>
+<script src="/admin-users.js"></script>
+</body>
+</html>

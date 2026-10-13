@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolkit • Rag X</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b5cf6'/%3E%3Ctext x='16' y='23' font-size='19' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/landing.css">
+    <link rel="stylesheet" href="/app-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="nav" id="nav"></header>
+
+<main class="app-main">
+
+    <div class="app-top">
+        <div>
+            <span class="tag">Toolkit</span>
+            <h1>Encryption toolkit</h1>
+            <p>Pick a tool on the left. Text, File and Vault encryption run in your browser, so your data and keys never leave your device.</p>
+        </div>
+        <span class="privacy-pill">Browser-side encryption</span>
+    </div>
+
+    <div class="app-shell">
+
+        <!-- ================= TOOL LIST ================= -->
+        <nav class="tool-nav" aria-label="Tools">
+            <span class="tool-nav-title">Tools</span>
+            <button id="showMessageSection" class="tab-btn side-item active-tab"><span class="si-num">01</span><span class="si-text"><b>Text Cipher</b><small>AES-256-GCM messages</small></span></button>
+            <button id="showFileSection" class="tab-btn side-item"><span class="si-num">02</span><span class="si-text"><b>File Cipher</b><small>Encrypt any file</small></span></button>
+            <button id="showVaultSection" class="tab-btn side-item"><span class="si-num">03</span><span class="si-text"><b>Password Vault</b><small>Password-based .ragx</small></span></button>
+            <button id="showFileLockSection" class="tab-btn side-item"><span class="si-num">04</span><span class="si-text"><b>PDF Protection</b><small>Lock and unlock PDFs</small></span></button>
+            <button id="showToolsSection" class="tab-btn side-item"><span class="si-num">05</span><span class="si-text"><b>Security Tools</b><small>Passwords and hashes</small></span></button>
+        </nav>
+
+        <div class="workspace">
+
+            <!-- ================= TEXT CIPHER ================= -->
+            <section id="messageSection">
+                <div class="panel-box">
+                    <div class="tool-head">
+                        <div>
+                            <h2>Text Cipher</h2>
+                            <p>Encrypt and decrypt messages with AES-256-GCM. A fresh key and IV are generated for every message.</p>
+                        </div>
+                        <span class="where local">Runs in your browser</span>
+                    </div>
+
+                    <div class="message-tabs">
+                        <button id="showEncrypt" class="tab-btn active-tab">Encrypt</button>
+                        <button id="showDecrypt" class="tab-btn">Decrypt</button>
+                    </div>
+
+                    <div id="encryptionSection">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Your message</span>
+                                <textarea id="messageInput" class="tall" rows="8" placeholder="Enter message to encrypt"></textarea>
+                                <button id="encryptBtn" class="primary-btn">Encrypt</button>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Result</span>
+                                <div class="output-row"><strong>Encrypted</strong><span id="encryptedText" class="output-text"></span><button class="mini-btn copy-btn" data-copy="encryptedText">Copy</button></div>
+                                <div class="output-row"><strong>Key</strong><span id="generatedKey" class="output-text"></span><button class="mini-btn copy-btn" data-copy="generatedKey">Copy</button></div>
+                                <div class="output-row"><strong>IV</strong><span id="ivValue" class="output-text"></span><button class="mini-btn copy-btn" data-copy="ivValue">Copy</button></div>
+                                <button id="downloadAllBtn" class="secondary-btn">Download All</button>
+                                <div class="hint-box"><b>Keep the key and IV safe.</b> Without them the message cannot be decrypted, and nobody can recover them for you.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="decryptionSection" style="display:none;">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Encrypted data</span>
+                                <div class="upload-wrapper">
+                                    <label for="uploadJsonFile" class="upload-btn">Upload Encrypted File</label>
+                                    <span id="fileNameDisplay" class="file-name"></span>
+                                    <input type="file" id="uploadJsonFile" hidden />
+                                </div>
+                                <textarea id="decryptEncryptedInput" rows="3" placeholder="Encrypted text"></textarea>
+                                <textarea id="decryptKeyInput" rows="2" placeholder="AES key"></textarea>
+                                <textarea id="decryptIVInput" rows="2" placeholder="IV"></textarea>
+                                <button id="decryptBtn" class="primary-btn">Decrypt</button>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Result</span>
+                                <div class="output-row big"><strong>Decrypted</strong><span id="decryptedText" class="output-text"></span><button class="mini-btn copy-btn" data-copy="decryptedText">Copy</button></div>
+                                <div class="hint-box"><b>Two ways to decrypt.</b> Paste the encrypted text, key and IV, or upload the package you downloaded with Download All.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= FILE CIPHER ================= -->
+            <section id="fileSection" style="display:none;">
+                <div class="panel-box">
+                    <div class="tool-head">
+                        <div>
+                            <h2>File Cipher</h2>
+                            <p>Encrypt any file in your browser and download a key package for later decryption. Nothing is uploaded.</p>
+                        </div>
+                        <span class="where local">Runs in your browser</span>
+                    </div>
+
+                    <div class="message-tabs">
+                        <button id="showFileEncrypt" class="tab-btn active-tab">Encrypt File</button>
+                        <button id="showFileDecrypt" class="tab-btn">Decrypt File</button>
+                    </div>
+
+                    <div id="fileEncryptSection">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Your file</span>
+                                <div class="upload-wrapper big">
+                                    <label for="fileInput" class="upload-btn">Choose File to Encrypt</label>
+                                    <span id="fileNameDisplayEncrypt" class="file-name"></span>
+                                    <input type="file" id="fileInput" hidden />
+                                </div>
+                                <button id="encryptFileBtn" class="primary-btn">Encrypt File</button>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Result</span>
+                                <div class="output-row"><strong>AES key</strong><span id="fileKeyOutput" class="output-text"></span><button class="mini-btn copy-btn" data-copy="fileKeyOutput">Copy</button></div>
+                                <div class="output-row"><strong>IV</strong><span id="fileIvOutput" class="output-text"></span><button class="mini-btn copy-btn" data-copy="fileIvOutput">Copy</button></div>
+                                <button id="downloadEncryptedFileBtn" class="secondary-btn" style="display:none;">Download Encrypted File</button>
+                                <button id="downloadKeyIvFileBtn" class="secondary-btn" style="display:none;">Download Key &amp; IV File</button>
+                                <div class="hint-box"><b>Download both files.</b> The encrypted file is useless without the key package, so store them in different places.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="fileDecryptSection" style="display:none;">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Files</span>
+                                <div class="upload-wrapper">
+                                    <label for="encryptedFileInput" class="upload-btn">Choose Encrypted File</label>
+                                    <span id="fileNameDisplayDecrypt" class="file-name"></span>
+                                    <input type="file" id="encryptedFileInput" hidden />
+                                </div>
+                                <div class="upload-wrapper">
+                                    <label for="keyFileInput" class="upload-btn">Upload Key File</label>
+                                    <span id="keyFileNameDisplay" class="file-name"></span>
+                                    <input type="file" id="keyFileInput" accept=".json" hidden />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Key details</span>
+                                <textarea id="fileDecryptKey" rows="2" placeholder="Enter AES Key (Base64)"></textarea>
+                                <textarea id="fileDecryptIv" rows="2" placeholder="Enter IV (Base64)"></textarea>
+                                <button id="decryptFileBtn" class="primary-btn">Decrypt File</button>
+                                <div class="hint-box" style="margin-top:14px;"><b>Tip:</b> uploading the key file fills in the key and IV for you, and restores the original file name.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= PASSWORD VAULT ================= -->
+            <section id="vaultSection" style="display:none;">
+                <div class="panel-box">
+                    <div class="tool-head">
+                        <div>
+                            <h2>Password Vault</h2>
+                            <p>Protect text or files with one password. The key is derived with PBKDF2 (600,000 rounds) and the file name is encrypted too.</p>
+                        </div>
+                        <span class="where local">Runs in your browser</span>
+                    </div>
+
+                    <div class="message-tabs">
+                        <button id="showVaultEncrypt" class="tab-btn active-tab">Encrypt</button>
+                        <button id="showVaultDecrypt" class="tab-btn">Decrypt</button>
+                    </div>
+
+                    <div id="vaultEncryptSection">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">What to protect</span>
+                                <textarea id="vaultText" class="tall" rows="6" placeholder="Type a message to protect (or choose a file below)"></textarea>
+                                <div class="or-line">or</div>
+                                <div class="upload-wrapper">
+                                    <label for="vaultFileInput" class="upload-btn">Choose File (optional)</label>
+                                    <span id="vaultFileName" class="file-name"></span>
+                                    <input type="file" id="vaultFileInput" hidden />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Password</span>
+                                <div class="password-wrap">
+                                    <input type="password" id="vaultPassword" placeholder="Create a password" autocomplete="new-password">
+                                    <button type="button" class="eye-btn" data-target="vaultPassword">Show</button>
+                                </div>
+                                <div class="password-wrap">
+                                    <input type="password" id="vaultPassword2" placeholder="Confirm password" autocomplete="new-password">
+                                    <button type="button" class="eye-btn" data-target="vaultPassword2">Show</button>
+                                </div>
+                                <button id="vaultEncryptBtn" class="primary-btn">Encrypt &amp; Download</button>
+                                <div class="hint-box" style="margin-top:14px;"><b>There is no password recovery.</b> If you forget it, the data cannot be opened by anyone, including us.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vaultDecryptSection" style="display:none;">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Vault file</span>
+                                <div class="upload-wrapper">
+                                    <label for="vaultDecFileInput" class="upload-btn">Choose .ragx File</label>
+                                    <span id="vaultDecFileName" class="file-name"></span>
+                                    <input type="file" id="vaultDecFileInput" hidden />
+                                </div>
+                                <div class="password-wrap">
+                                    <input type="password" id="vaultDecPassword" placeholder="Enter password" autocomplete="current-password">
+                                    <button type="button" class="eye-btn" data-target="vaultDecPassword">Show</button>
+                                </div>
+                                <button id="vaultDecryptBtn" class="primary-btn">Decrypt</button>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Result</span>
+                                <div class="output-row big" id="vaultResultRow" style="display:none;">
+                                    <strong>Message</strong>
+                                    <span id="vaultResult" class="output-text"></span>
+                                    <button class="mini-btn copy-btn" data-copy="vaultResult">Copy</button>
+                                </div>
+                                <div class="hint-box"><b>Files download automatically</b> with their original name. Text messages appear here.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= PDF PROTECTION ================= -->
+            <section id="fileLockSection" style="display:none;">
+                <div class="panel-box">
+                    <div class="tool-head">
+                        <div>
+                            <h2>PDF Protection</h2>
+                            <p>Lock a PDF with AES-256 password protection, or unlock one you locked before.</p>
+                        </div>
+                        <span class="where server">Processed on the server, in memory only</span>
+                    </div>
+
+                    <div class="message-tabs">
+                        <button id="showLock" class="tab-btn active-tab">Lock PDF</button>
+                        <button id="showUnlock" class="tab-btn">Unlock PDF</button>
+                    </div>
+
+                    <div id="lockSection">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Your PDF</span>
+                                <div class="upload-wrapper big">
+                                    <label for="lockFileInput" class="upload-btn">Choose PDF</label>
+                                    <span id="lockFileName" class="file-name"></span>
+                                    <input type="file" id="lockFileInput" accept=".pdf" hidden />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Password</span>
+                                <div class="password-wrap">
+                                    <input type="password" id="lockPassword" placeholder="Enter Password" autocomplete="new-password">
+                                    <button type="button" class="eye-btn" data-target="lockPassword">Show</button>
+                                </div>
+                                <div class="strength"><div id="strengthBar"></div></div>
+                                <div id="strengthText" class="strength-text"></div>
+                                <button id="lockFileBtn" class="primary-btn">Lock PDF</button>
+                                <div class="hint-box" style="margin-top:14px;"><b>The file is sent to the server</b> only for this step. It is processed in memory and never saved. Maximum size: 20 MB.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="unlockSection" style="display:none;">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Locked PDF</span>
+                                <div class="upload-wrapper big">
+                                    <label for="unlockFileInput" class="upload-btn">Choose Locked PDF</label>
+                                    <span id="unlockFileName" class="file-name"></span>
+                                    <input type="file" id="unlockFileInput" accept=".pdf" hidden />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Password</span>
+                                <div class="password-wrap">
+                                    <input type="password" id="unlockPassword" placeholder="Enter Password" autocomplete="current-password">
+                                    <button type="button" class="eye-btn" data-target="unlockPassword">Show</button>
+                                </div>
+                                <button id="unlockFileBtn" class="primary-btn">Unlock PDF</button>
+                                <div class="hint-box" style="margin-top:14px;"><b>Wrong password?</b> Passwords are case-sensitive, and the unlocked copy downloads as a new file.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= SECURITY TOOLS ================= -->
+            <section id="toolsSection" style="display:none;">
+                <div class="panel-box">
+                    <div class="tool-head">
+                        <div>
+                            <h2>Security Tools</h2>
+                            <p>Generate strong passwords and verify file integrity with cryptographic hashes.</p>
+                        </div>
+                        <span class="where local">Runs in your browser</span>
+                    </div>
+
+                    <div class="message-tabs">
+                        <button id="showToolPw" class="tab-btn active-tab">Password Generator</button>
+                        <button id="showToolHash" class="tab-btn">Hash Checker</button>
+                    </div>
+
+                    <div id="toolPwSection">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Your password</span>
+                                <div class="output-row"><strong>Generated password</strong><span id="genOutput" class="output-text"></span><button class="mini-btn copy-btn" data-copy="genOutput">Copy</button></div>
+                                <div class="strength"><div id="genBar"></div></div>
+                                <div id="genText" class="strength-text"></div>
+                                <div class="hint-box"><b>Made with your browser's secure random generator.</b> Nothing is sent anywhere, and longer passwords are always stronger.</div>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Settings</span>
+                                <div class="range-row">
+                                    <span>Length</span>
+                                    <input type="range" id="genLength" min="8" max="64" value="16">
+                                    <span id="genLengthVal" class="range-value">16</span>
+                                </div>
+                                <div class="option-grid">
+                                    <label class="option-item"><input type="checkbox" id="genUpper" checked> Uppercase (A-Z)</label>
+                                    <label class="option-item"><input type="checkbox" id="genLower" checked> Lowercase (a-z)</label>
+                                    <label class="option-item"><input type="checkbox" id="genNumbers" checked> Numbers (0-9)</label>
+                                    <label class="option-item"><input type="checkbox" id="genSymbols" checked> Symbols (!@#$)</label>
+                                </div>
+                                <button id="genBtn" class="primary-btn">Generate New Password</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="toolHashSection" style="display:none;">
+                        <div class="two-col">
+                            <div class="col">
+                                <span class="col-title">Input</span>
+                                <textarea id="hashText" rows="4" placeholder="Type text to hash (or choose a file below)"></textarea>
+                                <div class="upload-wrapper">
+                                    <label for="hashFileInput" class="upload-btn">Choose File</label>
+                                    <span id="hashFileName" class="file-name"></span>
+                                    <input type="file" id="hashFileInput" hidden />
+                                </div>
+                                <select id="hashAlgo" class="tool-select">
+                                    <option value="SHA-256" selected>SHA-256 (recommended)</option>
+                                    <option value="SHA-512">SHA-512</option>
+                                    <option value="SHA-384">SHA-384</option>
+                                    <option value="SHA-1">SHA-1 (legacy, not secure)</option>
+                                </select>
+                                <button id="hashBtn" class="primary-btn">Generate Hash</button>
+                            </div>
+                            <div class="col">
+                                <span class="col-title">Result</span>
+                                <div class="output-row"><strong>Hash</strong><span id="hashOutput" class="output-text"></span><button class="mini-btn copy-btn" data-copy="hashOutput">Copy</button></div>
+                                <input type="text" id="hashCompare" class="tool-input" placeholder="Paste the expected hash here to compare">
+                                <div id="hashMatch" class="match-text"></div>
+                                <div class="hint-box"><b>Why compare hashes?</b> If a download's hash matches the one the publisher lists, the file was not changed or tampered with.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer" id="footer"></footer>
+
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+<script src="/activity.js"></script>
+<script src="/script.js"></script>
+<script src="/phase2.js"></script>
+<script src="/phase3.js"></script>
+<script src="/phase4.js"></script>
+<script src="/app-ui.js"></script>
+</body>
+</html>

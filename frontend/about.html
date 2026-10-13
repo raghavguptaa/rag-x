@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About • Rag X</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b5cf6'/%3E%3Ctext x='16' y='23' font-size='19' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/landing.css">
+    <link rel="stylesheet" href="/pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="nav" id="nav"></header>
+
+<!-- ================= INTRO ================= -->
+<section class="page-hero">
+    <div class="container page-hero-grid">
+        <div class="reveal">
+            <span class="tag">About</span>
+            <h1>Encryption you can understand, built for the browser</h1>
+            <p class="lead">
+                Rag X is a toolkit for protecting text, files and PDFs with modern
+                cryptography. Most operations run locally, so your data and keys
+                stay on your device.
+            </p>
+            <div class="page-actions">
+                <a href="/app.html" class="btn btn-lg">Toolkit</a>
+                <a href="/contact.html" class="btn btn-ghost btn-lg">Get in touch</a>
+            </div>
+        </div>
+
+        <aside class="panel reveal" data-delay="120">
+            <h3>Project snapshot</h3>
+            <div class="kv-row"><span>Status</span><b><span class="status-pill">Actively developed</span></b></div>
+            <div class="kv-row"><span>Stack</span><b>Python, Flask, vanilla JavaScript</b></div>
+            <div class="kv-row"><span>Encryption</span><b>AES-256-GCM, PBKDF2</b></div>
+            <div class="kv-row"><span>Tools</span><b>6</b></div>
+            <div class="kv-row"><span>Accounts</span><b>Optional</b></div>
+            <div class="kv-row"><span>Author</span><b>Raghav Gupta</b></div>
+            
+        </aside>
+    </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section class="section">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">What it does</span>
+            <h2>Everything in the toolkit</h2>
+            <p>Six tools grouped into four areas.</p>
+        </div>
+
+        <div class="grid-4">
+            <article class="f-card reveal"><span class="f-num">01</span><h3>Text and File Cipher</h3><p>AES-256-GCM encryption in your browser, with a fresh key and IV for every operation.</p></article>
+            <article class="f-card reveal" data-delay="100"><span class="f-num">02</span><h3>Password Vault</h3><p>Protect text or files with one password. Keys come from PBKDF2 and file names are encrypted too.</p></article>
+            <article class="f-card reveal" data-delay="200"><span class="f-num">03</span><h3>PDF Protection</h3><p>Lock and unlock PDFs with AES-256 password protection, processed in memory and never saved.</p></article>
+            <article class="f-card reveal" data-delay="300"><span class="f-num">04</span><h3>Security Tools</h3><p>A secure password generator with an entropy meter, and a SHA-256 hash checker for file integrity.</p></article>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SECURITY + ARCHITECTURE ================= -->
+<section class="section">
+    <div class="container split">
+        <div class="reveal">
+            <span class="tag">Security design</span>
+            <h2>Built so there is little to steal</h2>
+            <p>Sensitive work happens on your device. The server only handles what it has to, and keeps almost nothing.</p>
+            <ul class="check-list">
+                <li>AES-256-GCM with a random IV for every operation</li>
+                <li>PBKDF2-HMAC-SHA256 with 600,000 iterations</li>
+                <li>Authenticated file headers, so tampering is detected</li>
+                <li>Strict Content Security Policy, rate limiting and upload limits</li>
+                <li>Accounts store only an email and a hashed password</li>
+            </ul>
+        </div>
+
+        <div class="panel arch reveal" data-delay="150">
+            <div class="layer-box">
+                <small>Your browser</small>
+                <div class="chips"><span>HTML / CSS / JS</span><span>Web Crypto API</span><span>AES-256-GCM</span><span>PBKDF2</span></div>
+            </div>
+            <div class="arch-link"><i></i><span>HTTPS, PDFs and accounts only</span></div>
+            <div class="layer-box">
+                <small>Server</small>
+                <div class="chips"><span>Flask</span><span>pypdf</span><span>Rate limiting</span><span>Sessions + CSRF</span></div>
+            </div>
+            <div class="arch-link"><i></i><span>Email + password hash</span></div>
+            <div class="layer-box">
+                <small>Database</small>
+                <div class="chips"><span>SQLite (local)</span><span>No messages</span><span>No files</span><span>No keys</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="container">
+    <div class="cta reveal">
+        <h2>Try it yourself</h2>
+        <p>Encrypt your first message in seconds. No account needed.</p>
+        <a href="/app.html" class="btn btn-light btn-lg">Toolkit</a>
+    </div>
+</section>
+
+<footer class="site-footer" id="footer"></footer>
+
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+<script src="/pages.js"></script>
+</body>
+</html>
